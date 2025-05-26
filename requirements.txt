@@ -1,0 +1,17 @@
+# FastAPI and server dependencies
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+
+# File processing
+PyMuPDF==1.26.0
+
+# Machine Learning and Embeddings
+sentence-transformers==4.1.0
+torch>=2.0.0
+
+# Vector Database
+chromadb==0.5.23
+
+# Additional utilities
+python-multipart==0.0.20
+python-dotenv==1.0.1
