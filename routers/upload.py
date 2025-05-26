@@ -1,6 +1,10 @@
 from fastapi import APIRouter, File, UploadFile, HTTPException
 from utils.parser import parse_file
 from pathlib import Path
+import uuid
+from services.embedding import embed_text
+from vector_store.chroma_store import add_to_vectorstore
+
 
 router = APIRouter()
 
@@ -17,4 +21,8 @@ async def upload_file(file: UploadFile = File(...)):
     if not text.strip():
         raise HTTPException(status_code=400, detail="Parsed file is empty")
     
-    return {"filename": file.filename, "content": text[:1000]}  # Preview first 1000 chars
+    doc_id = str(uuid.uuid4())
+    embedding = embed_text(text)
+    add_to_vectorstore(doc_id, text, embedding)
+
+    return {"filename": file.filename, "doc_id": doc_id, "message": "Document uploaded and embedded"}
