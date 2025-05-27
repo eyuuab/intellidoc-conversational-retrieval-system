@@ -12,6 +12,11 @@ torch>=2.0.0
 # Vector Database
 chromadb==0.5.23
 
+# LangChain and RAG dependencies
+langchain==0.3.13
+langchain-google-genai==2.0.8
+langchain-community==0.3.13
+
 # Additional utilities
 python-multipart==0.0.20
 python-dotenv==1.0.1
