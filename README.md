@@ -8,6 +8,10 @@ A FastAPI-based Retrieval-Augmented Generation (RAG) system that allows users to
 - 🔍 **Text Parsing**: Automatic text extraction from uploaded documents
 - 🧠 **Text Embeddings**: Generate semantic embeddings using sentence-transformers
 - 🗄️ **Vector Storage**: Store and retrieve documents using ChromaDB
+- 💬 **Conversational AI**: Chat with your documents using Google Gemini Pro
+- 🎨 **Beautiful UI**: Modern Streamlit interface with interactive components
+- 📊 **Analytics Dashboard**: Comprehensive document analytics and insights
+- ⚙️ **Settings Panel**: Configurable system settings and preferences
 - 🚀 **FastAPI Backend**: RESTful API with automatic documentation
 - 🔄 **CORS Support**: Cross-origin resource sharing enabled
 
@@ -15,13 +19,20 @@ A FastAPI-based Retrieval-Augmented Generation (RAG) system that allows users to
 
 ```
 intellidoc-conversational-retrieval-system/
+├── streamlit_app.py        # Main Streamlit application
+├── run_streamlit.py        # Streamlit runner script
 ├── main.py                 # FastAPI application entry point
 ├── requirements.txt        # Python dependencies
+├── .env.example           # Environment variables template
+├── pages/                 # Streamlit pages
+│   ├── 1_📊_Analytics.py  # Analytics dashboard
+│   ├── 2_⚙️_Settings.py   # Settings and configuration
+│   └── 3_ℹ️_About.py      # About and documentation
 ├── routers/
 │   └── upload.py          # File upload endpoints
 ├── services/
 │   ├── embedding.py       # Text embedding service
-│   └── rag.py            # RAG implementation (placeholder)
+│   └── rag.py            # RAG implementation with LangChain
 ├── utils/
 │   └── parser.py         # Document parsing utilities
 └── vector_store/
@@ -48,6 +59,17 @@ pip install -r requirements.txt
 ```
 
 ### 4. Run the Application
+
+#### Option A: Streamlit UI (Recommended)
+```bash
+# Run the beautiful Streamlit interface
+streamlit run streamlit_app.py
+
+# Or use the convenient runner script
+python run_streamlit.py
+```
+
+#### Option B: FastAPI Backend Only
 ```bash
 uvicorn main:app --reload --host 127.0.0.1 --port 8001
 ```
