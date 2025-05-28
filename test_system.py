@@ -180,7 +180,6 @@ def test_fastapi_server():
         response = requests.get("http://127.0.0.1:8001/", timeout=5)
         if response.status_code == 200:
             print("  ✅ FastAPI server is running")
-            print(f"  📝 Response: {response.json()}")
             return True
         else:
             print(f"  ❌ FastAPI server returned status {response.status_code}")
