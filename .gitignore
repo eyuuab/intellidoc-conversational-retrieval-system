@@ -64,3 +64,4 @@ logs/
 # Vector store data
 vector_store/data/
 chroma_db/
+chroma_data
